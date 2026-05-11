@@ -1,5 +1,8 @@
 ---
-import '../styles/global.css';
+interface Props {
+  title?: string;
+}
+const { title = 'NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY' } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -7,93 +10,59 @@ import '../styles/global.css';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NAMENLOS TATTOO — Underground tattoo artist. Pain, Chaos, Anarchy." />
-  <title>{Astro.props.title || 'NAMENLOS TATTOO'}</title>
+  <title>{title}</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Tailwind + Custom Styles -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
+    body {
+      font-family: 'Impact', system-ui, sans-serif;
+      background:
+        #0a0a0a
+        url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d')
+        fixed center / cover;
+      background-blend-mode: multiply;
+      color: #ddd;
+    }
+
     .punk-title {
       font-family: 'Creepster', cursive;
+      text-shadow: 6px 6px 0 #000, -4px -4px 0 #000;
+      letter-spacing: -4px;
+      color: #ff0022;
+    }
+
+    .trash-bg {
+      background: rgba(20, 0, 0, 0.92);
+      border: 6px solid #c00;
+      box-shadow: 0 0 0 10px #000;
     }
   </style>
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="overflow-x-hidden">
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 border-b-8 border-red-700 bg-black/95 backdrop-blur-lg z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-
-      <!-- Логотип -->
-      <a href="/" class="punk-title text-5xl md:text-6xl tracking-tighter text-red-600 hover:text-red-500 transition">
-        NAMENLOS
-      </a>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-10 text-lg font-black uppercase">
-        <a href="#about" class="hover:text-yellow-400 transition">About Me</a>
-        <a href="#portfolio" class="hover:text-yellow-400 transition">Portfolio</a>
-        <a href="#projects" class="hover:text-yellow-400 transition">Projects</a>
-        <a href="#booking" class="hover:text-yellow-400 transition">Booking</a>
+  <header class="fixed top-0 w-full border-b-8 border-red-800 bg-black/95 z-50 py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="/" class="punk-title text-5xl md:text-6xl">NAMENLOS</a>
+      <nav class="hidden md:flex gap-10 text-xl font-black uppercase">
+        <a href="#about" class="hover:text-yellow-400">ABOUT ME</a>
+        <a href="#portfolio" class="hover:text-yellow-400">PORTFOLIO</a>
+        <a href="#projects" class="hover:text-yellow-400">МОИ ПРОЕКТЫ</a>
+        <a href="#booking" class="text-red-500 hover:text-white">ЗАПИСАТЬСЯ</a>
       </nav>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-4xl">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-black/95 z-40 pt-24">
-      <div class="flex flex-col items-center gap-10 text-3xl font-black uppercase">
-        <a href="#about" class="mobile-link">About Me</a>
-        <a href="#portfolio" class="mobile-link">Portfolio</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#booking" class="mobile-link text-red-500">Booking</a>
-      </div>
     </div>
   </header>
 
-  <!-- Основной контент страницы -->
   <slot />
 
   <!-- FOOTER -->
-  <footer class="bg-black border-t-8 border-red-700 py-16 text-center">
-    <div class="max-w-7xl mx-auto px-6">
-      <p class="text-red-500 text-xl font-black">
-        © 2026 NAMENLOS TATTOO • CHAOS ON SKIN • NO RULES • NO REGRETS
-      </p>
-    </div>
+  <footer class="py-16 text-center border-t-8 border-red-800 bg-black text-red-500 text-xl font-black">
+    © 2026 NAMENLOS TATTOO • CHAOS ON SKIN • NO RULES • NO REGRETS
   </footer>
 
-  <script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
-
-    menuBtn.addEventListener('click', () => {
-      isMenuOpen = !isMenuOpen;
-      if (isMenuOpen) {
-        mobileMenu.classList.remove('hidden');
-        menuBtn.innerHTML = `<i class="fas fa-times"></i>`;
-      } else {
-        mobileMenu.classList.add('hidden');
-        menuBtn.innerHTML = `<i class="fas fa-bars"></i>`;
-      }
-    });
-
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuBtn.innerHTML = `<i class="fas fa-bars"></i>`;
-        isMenuOpen = false;
-      });
-    });
-  </script>
 </body>
 </html>

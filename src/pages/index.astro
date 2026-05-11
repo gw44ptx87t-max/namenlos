@@ -3,47 +3,43 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY">
-  <!-- HERO -->
-  <section class="min-h-screen flex items-center relative overflow-hidden">
-    <div class="absolute inset-0 bg-[url('/images/bg/main-bg.jpg')] bg-cover bg-center"></div>
-    <div class="absolute inset-0 bg-black/70"></div>
 
-    <div class="max-w-6xl mx-auto px-6 text-center relative z-10 pt-20">
-      <h1 class="punk-title text-7xl md:text-[10rem] leading-none text-red-600 mb-6">
-        NAMENLOS
-      </h1>
-      <p class="text-5xl md:text-7xl text-red-500 tracking-widest mb-8">PAIN IS MY INK</p>
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center pt-28 relative">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <h1 class="punk-title text-7xl md:text-[10rem] leading-none mb-4">NAMENLOS</h1>
+      <p class="text-5xl md:text-7xl text-red-500 mb-6">PAIN IS MY INK</p>
       <p class="text-2xl md:text-4xl max-w-2xl mx-auto">
-        Я не рисую картинки.<br>Я выжигаю свободу на твоей коже.
+        Я выжигаю свободу на коже. Без правил. Без компромиссов.
       </p>
-      <a href="#booking"
-         class="mt-12 inline-block border-4 border-red-600 hover:bg-red-600 hover:text-white text-3xl font-black px-16 py-8 transition-all hover:rotate-3">
-        ЗАБИТЬСЯ НА СЕАНС
-      </a>
     </div>
   </section>
 
   <!-- ABOUT ME -->
-  <section id="about" class="py-24 bg-zinc-950 border-t-8 border-red-700">
+  <section id="about" class="py-20 md:py-28 trash-bg border-t-8 border-red-800">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black text-center mb-16 text-red-500">ABOUT ME</h2>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <img src="/images/about/master.jpg" class="w-full border-8 border-red-700 mb-6" alt="Namenlos">
+          <img
+            src="https://files.grok.x.ai/generated/qghMf.jpg"
+            class="w-full border-8 border-red-700 mb-6"
+            alt="Namenlos"
+          />
           <div class="grid grid-cols-3 gap-4">
-            <img src="/images/about/process-1.jpg" class="w-full border-4 border-red-700" alt="">
-            <img src="/images/about/process-2.jpg" class="w-full border-4 border-red-700" alt="">
-            <img src="/images/about/process-3.jpg" class="w-full border-4 border-red-700" alt="">
+            <img src="https://files.grok.x.ai/generated/GzQYl.jpg" class="w-full border-4 border-red-700" alt="" />
+            <img src="https://files.grok.x.ai/generated/K5yuB.jpg" class="w-full border-4 border-red-700" alt="" />
+            <img src="https://files.grok.x.ai/generated/eKyuk.jpg" class="w-full border-4 border-red-700" alt="" />
           </div>
         </div>
-        <div class="space-y-8 text-lg md:text-xl">
-          <p>Я колю там, где другие боятся — на кинк-вечеринках, в дымных подвалах и на рейвах под тяжёлый бас.</p>
-          <p class="italic text-red-400">"Если тебе нужна аккуратная картинка — иди к другим. Ко мне приходят те, кто хочет чувствовать."</p>
-          <p>Без стерильных студий. Только боль, цепи, булавки и настоящая свобода.</p>
-
-          <div class="text-4xl md:text-5xl font-black border-l-8 border-yellow-400 pl-8">
-            NO GODS<br>
-            NO MASTERS<br>
+        <div class="space-y-8 text-xl md:text-2xl">
+          <p>Я колю там, где другие боятся — на кинк-вечеринках, в подвалах и на рейвах под тяжёлый бас.</p>
+          <p class="italic">"Если тебе нужна красивая картинка — иди к другим. Ко мне приходят те, кто хочет чувствовать боль и свободу."</p>
+          <p>Без стерильных студий. Только честная кровь, цепи и булавки.</p>
+          <div class="text-5xl font-black border-l-8 border-yellow-400 pl-8">
+            NO GODS<br />
+            NO MASTERS<br />
             ONLY CHAOS
           </div>
         </div>
@@ -52,54 +48,60 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- PORTFOLIO -->
-  <section id="portfolio" class="py-24 border-t-8 border-red-700">
+  <section id="portfolio" class="py-20 md:py-28 border-t-8 border-red-800">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black text-center mb-16 text-red-500">PORTFOLIO</h2>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-        <img src="/images/portfolio/tattoo-01.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-02.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-03.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-04.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-05.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-06.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-07.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
-        <img src="/images/portfolio/tattoo-08.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="">
+        <img src="https://files.grok.x.ai/generated/ir6M6.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/RCg4J.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/vwRs5.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/1UJTp.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/YvgNz.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/1V5db.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/4iT8H.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
+        <img src="https://files.grok.x.ai/generated/NxyXS.jpg" class="w-full border-8 border-red-800 hover:border-yellow-400 transition-all" alt="" />
       </div>
     </div>
   </section>
 
-  <!-- МОИ ПРОЕКТЫ -->
-  <section id="projects" class="py-24 border-t-8 border-red-700 bg-zinc-950">
+  <!-- МОИ ПРОЕКТЫ ГДЕ Я БЬЮ -->
+  <section id="projects" class="py-20 md:py-28 border-t-8 border-red-800 bg-black">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black text-center mb-16 text-red-500">МОИ ПРОЕКТЫ, ГДЕ Я БЬЮ</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <div class="border-4 border-red-700 p-10 hover:bg-red-950/50 transition">
+        <div class="trash-bg p-10 border-4 border-red-700">
           <h3 class="text-4xl font-black mb-4">DARK KINK SESSIONS</h3>
-          <p class="text-xl">Живые тату-сессии на кинк-вечеринках под красный свет и бас.</p>
+          <p class="text-xl">Живые тату-сессии на кинк-вечеринках под красный свет и тяжёлый бас.</p>
         </div>
-        <div class="border-4 border-red-700 p-10 hover:bg-red-950/50 transition">
-          <h3 class="text-4xl font-black mb-4">BASEMENT RAVE</h3>
-          <p class="text-xl">Мобильная тату-станция в сквотах и подвалах до утра.</p>
+        <div class="trash-bg p-10 border-4 border-red-700">
+          <h3 class="text-4xl font-black mb-4">BASEMENT RAVE TATTOO</h3>
+          <p class="text-xl">Мобильная тату-станция в сквотах и подвалах до самого утра.</p>
         </div>
-        <div class="border-4 border-red-700 p-10 hover:bg-red-950/50 transition">
+        <div class="trash-bg p-10 border-4 border-red-700">
           <h3 class="text-4xl font-black mb-4">FETISH FLASH NIGHT</h3>
-          <p class="text-xl">Специальные дизайны для BDSM и fetish-вечеринок.</p>
+          <p class="text-xl">Специальные флеш-дизайны для BDSM-сессий и fetish-вечеринок.</p>
         </div>
-        <div class="border-4 border-red-700 p-10 hover:bg-red-950/50 transition">
+        <div class="trash-bg p-10 border-4 border-red-700">
           <h3 class="text-4xl font-black mb-4">AFTERPARTY CHAOS</h3>
-          <p class="text-xl">Тату после основных вечеринок, когда все уже на пределе.</p>
+          <p class="text-xl">Тату после основных вечеринок, когда все уже на грани.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ЗАПИСАТЬСЯ НА СЕАНС -->
-  <section id="booking" class="py-24 md:py-32 border-t-8 border-red-700 bg-red-700 text-center">
+  <section id="booking" class="py-24 md:py-32 border-t-8 border-red-800 bg-red-800 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black mb-8">ЗАПИСАТЬСЯ НА СЕАНС</h2>
-      <p class="text-3xl mb-12">Готов к настоящей метке?<br>Пиши без лишних слов.</p>
-      <a href="https://t.me/" target="_blank"
-         class="inline-block border-8 border-black bg-white text-black text-4xl font-black py-10 px-20 hover:bg-black hover:text-white transition-all">
+      <p class="text-3xl md:text-4xl mb-12">
+        Не ищи лёгких путей.<br />
+        Если готов к настоящей метке — пиши.
+      </p>
+      <a
+        href="https://t.me/"
+        target="_blank"
+        class="inline-block border-8 border-black bg-white text-black text-4xl font-black py-10 px-24 hover:bg-red-900 hover:text-white transition-all"
+      >
         ПИШИ В TELEGRAM →
       </a>
     </div>
