@@ -1,0 +1,211 @@
+---
+interface Tier {
+  name: string;
+  range: string;
+  description: string;
+  includes: string[];
+  featured?: boolean;
+}
+
+const tiers: Tier[] = [
+  {
+    name: 'Club',
+    range: 'from €800',
+    description: 'For intimate club nights and underground venues up to 500 capacity.',
+    includes: [
+      '2–3 hour live set or DJ set',
+      'Full rider included',
+      'Sound check 2h before',
+      'One support act welcome',
+    ],
+  },
+  {
+    name: 'Festival',
+    range: 'from €2 500',
+    description: 'Main stage and curated festival appearances with full production.',
+    includes: [
+      'Custom set duration (30–90 min)',
+      'Stage production rider',
+      'Hotel + flights included',
+      'Press kit and artist assets',
+      'Soundcheck & line check',
+    ],
+    featured: true,
+  },
+  {
+    name: 'Private',
+    range: 'On request',
+    description: 'Private events, corporate bookings, and exclusive listening sessions.',
+    includes: [
+      'Bespoke set concept',
+      'Any duration',
+      'Custom AV coordination',
+      'NDA available on request',
+    ],
+  },
+];
+---
+
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title" id="pricing-title">Booking rates</h2>
+    <p class="pricing__note">
+      All rates are starting prices. Final fee depends on travel, production
+      requirements, and event specifics.
+    </p>
+
+    <div class="pricing__grid">
+      {tiers.map((tier) => (
+        <div class={`tier-card${tier.featured ? ' tier-card--featured' : ''}`}>
+          {tier.featured && <span class="tier-card__badge">Most booked</span>}
+          <p class="tier-card__name">{tier.name}</p>
+          <p class="tier-card__range">{tier.range}</p>
+          <p class="tier-card__description">{tier.description}</p>
+          <ul class="tier-card__list">
+            {tier.includes.map((item) => (
+              <li class="tier-card__item">
+                <span class="tier-card__check" aria-hidden="true">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <a href="#contacts" class={`tier-card__cta${tier.featured ? ' tier-card__cta--featured' : ''}`}>
+            Get in touch
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing__note {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    max-width: 60ch;
+  }
+
+  .pricing__grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .tier-card {
+    position: relative;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tier-card--featured {
+    border-color: var(--color-accent);
+    background: var(--color-surface-2);
+  }
+
+  .tier-card__badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .tier-card__name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .tier-card--featured .tier-card__name {
+    color: var(--color-accent);
+  }
+
+  .tier-card__range {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .tier-card__description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tier-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+  }
+
+  .tier-card__item {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    align-items: flex-start;
+  }
+
+  .tier-card__check {
+    color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .tier-card__cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: all var(--transition);
+    margin-top: 0.5rem;
+  }
+
+  .tier-card__cta:hover {
+    border-color: var(--color-text);
+  }
+
+  .tier-card__cta--featured {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .tier-card__cta--featured:hover {
+    background: transparent;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+    }
+  }
+</style>

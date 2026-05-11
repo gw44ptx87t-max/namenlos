@@ -1,0 +1,206 @@
+---
+interface Event {
+  date: string;
+  month: string;
+  year: string;
+  title: string;
+  venue: string;
+  city: string;
+  country: string;
+  ticketUrl: string;
+  sold_out?: boolean;
+}
+
+const events: Event[] = [
+  {
+    date: '14',
+    month: 'Jun',
+    year: '2026',
+    title: 'Berghain Kantine',
+    venue: 'Kantine am Berghain',
+    city: 'Berlin',
+    country: 'DE',
+    ticketUrl: '#',
+  },
+  {
+    date: '28',
+    month: 'Jun',
+    year: '2026',
+    title: 'Unsound Festival',
+    venue: 'Cricoteka',
+    city: 'Kraków',
+    country: 'PL',
+    ticketUrl: '#',
+    sold_out: false,
+  },
+  {
+    date: '12',
+    month: 'Jul',
+    year: '2026',
+    title: 'De School (closing)',
+    venue: 'SHELTER',
+    city: 'Amsterdam',
+    country: 'NL',
+    ticketUrl: '#',
+    sold_out: true,
+  },
+  {
+    date: '03',
+    month: 'Aug',
+    year: '2026',
+    title: 'CTM Festival',
+    venue: 'Kraftwerk Berlin',
+    city: 'Berlin',
+    country: 'DE',
+    ticketUrl: '#',
+  },
+];
+---
+
+<section class="section" id="events" aria-labelledby="events-title">
+  <div class="container">
+    <p class="section-label">Live</p>
+    <h2 class="section-title" id="events-title">Upcoming shows</h2>
+
+    <div class="events__list" role="list">
+      {events.map((event) => (
+        <article class="event-row" role="listitem">
+          <div class="event__date" aria-label={`${event.date} ${event.month} ${event.year}`}>
+            <span class="event__day">{event.date}</span>
+            <span class="event__month-year">{event.month} {event.year}</span>
+          </div>
+
+          <div class="event__info">
+            <p class="event__title">{event.title}</p>
+            <p class="event__location">{event.venue} — {event.city}, {event.country}</p>
+          </div>
+
+          <div class="event__action">
+            {event.sold_out ? (
+              <span class="tag tag--sold-out">Sold out</span>
+            ) : (
+              <a href={event.ticketUrl} class="tag tag--tickets" target="_blank" rel="noopener">
+                Tickets →
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="events__more">
+      More dates TBA — <a href="#contacts">get in touch</a> for private & festival bookings.
+    </p>
+  </div>
+</section>
+
+<style>
+  .events__list {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-row {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    gap: var(--space-md);
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    transition: background var(--transition);
+  }
+
+  .event-row:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .event-row:hover {
+    background: var(--color-surface);
+    margin-inline: calc(-1 * var(--space-md));
+    padding-inline: var(--space-md);
+  }
+
+  .event__date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+  }
+
+  .event__day {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .event__month-year {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .event__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .event__location {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  .tag--tickets {
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    transition: all var(--transition);
+  }
+
+  .tag--tickets:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .tag--sold-out {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    cursor: default;
+  }
+
+  .events__more {
+    margin-top: var(--space-md);
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .events__more a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 600px) {
+    .event-row {
+      grid-template-columns: 72px 1fr;
+    }
+
+    .event__action {
+      grid-column: 2;
+    }
+  }
+</style>

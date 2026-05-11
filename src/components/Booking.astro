@@ -1,0 +1,243 @@
+---
+---
+
+<section class="section" id="booking" aria-labelledby="booking-title">
+  <div class="container booking__inner">
+    <div class="booking__text">
+      <p class="section-label">Booking</p>
+      <h2 class="section-title" id="booking-title">Let's make<br />something happen</h2>
+      <p class="booking__description">
+        Fill out the form with your event details and we'll get back to you
+        within 48 hours. For urgent inquiries use the direct contacts below.
+      </p>
+      <div class="booking__quick-contacts">
+        <a href="mailto:booking@namenlos.art" class="booking__contact-link">
+          <span class="booking__contact-label">Booking</span>
+          booking@namenlos.art
+        </a>
+        <a href="mailto:press@namenlos.art" class="booking__contact-link">
+          <span class="booking__contact-label">Press</span>
+          press@namenlos.art
+        </a>
+      </div>
+    </div>
+
+    <form
+      class="booking__form"
+      name="booking"
+      method="POST"
+      data-netlify="true"
+      novalidate
+    >
+      <input type="hidden" name="form-name" value="booking" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name" class="form-label">Name / Organization</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            placeholder="Your name or company"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="event-date" class="form-label">Event date</label>
+          <input
+            type="date"
+            id="event-date"
+            name="event-date"
+            class="form-input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="event-type" class="form-label">Event type</label>
+          <select id="event-type" name="event-type" class="form-input">
+            <option value="">Select type</option>
+            <option value="club">Club night</option>
+            <option value="festival">Festival</option>
+            <option value="private">Private event</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="venue" class="form-label">Venue / Location</label>
+        <input
+          type="text"
+          id="venue"
+          name="venue"
+          class="form-input"
+          placeholder="Venue name, city, country"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          class="form-input form-textarea"
+          placeholder="Tell us about the event, expected audience, set duration, etc."
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send inquiry</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .booking__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .booking__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: sticky;
+    top: 6rem;
+  }
+
+  .booking__description {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .booking__quick-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .booking__contact-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    transition: color var(--transition);
+  }
+
+  .booking__contact-link:hover {
+    color: var(--color-accent);
+  }
+
+  .booking__contact-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .booking__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+  .form-input {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    font-family: inherit;
+    transition: border-color var(--transition);
+    width: 100%;
+    appearance: none;
+  }
+
+  .form-input::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .form-submit {
+    align-self: flex-start;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: 0.875rem 2.5rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .form-submit:hover {
+    background: transparent;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .booking__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .booking__text {
+      position: static;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

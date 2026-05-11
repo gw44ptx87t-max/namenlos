@@ -1,0 +1,175 @@
+---
+const socials = [
+  { label: 'Instagram', handle: '@namenlos_art', href: '#' },
+  { label: 'SoundCloud', handle: 'namenlos', href: '#' },
+  { label: 'Bandcamp', handle: 'namenlos.bandcamp.com', href: '#' },
+  { label: 'ResidentAdvisor', handle: 'namenlos', href: '#' },
+];
+---
+
+<section class="section" id="contacts" aria-labelledby="contacts-title">
+  <div class="container">
+    <p class="section-label">Contacts</p>
+    <h2 class="section-title" id="contacts-title">Get in touch</h2>
+
+    <div class="contacts__grid">
+      <div class="contacts__block">
+        <p class="contacts__block-label">Management &amp; Booking</p>
+        <a href="mailto:booking@namenlos.art" class="contacts__email">
+          booking@namenlos.art
+        </a>
+        <p class="contacts__note">Response within 48 h on business days</p>
+      </div>
+
+      <div class="contacts__block">
+        <p class="contacts__block-label">Press &amp; Media</p>
+        <a href="mailto:press@namenlos.art" class="contacts__email">
+          press@namenlos.art
+        </a>
+        <p class="contacts__note">Hi-res press kit available on request</p>
+      </div>
+
+      <div class="contacts__block">
+        <p class="contacts__block-label">General</p>
+        <a href="mailto:hello@namenlos.art" class="contacts__email">
+          hello@namenlos.art
+        </a>
+        <p class="contacts__note">Collaborations, questions, listening sessions</p>
+      </div>
+    </div>
+
+    <div class="contacts__divider"></div>
+
+    <div class="contacts__socials">
+      <p class="contacts__socials-label">Follow</p>
+      <ul class="contacts__social-list">
+        {socials.map(({ label, handle, href }) => (
+          <li>
+            <a href={href} class="social-link" target="_blank" rel="noopener noreferrer">
+              <span class="social-link__platform">{label}</span>
+              <span class="social-link__handle">{handle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contacts__grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .contacts__block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    transition: border-color var(--transition);
+  }
+
+  .contacts__block:hover {
+    border-color: var(--color-accent);
+  }
+
+  .contacts__block-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .contacts__email {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: color var(--transition);
+    word-break: break-all;
+  }
+
+  .contacts__email:hover {
+    color: var(--color-accent);
+  }
+
+  .contacts__note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .contacts__divider {
+    height: 1px;
+    background: var(--color-border);
+    margin-block: var(--space-lg);
+  }
+
+  .contacts__socials {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .contacts__socials-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .contacts__social-list {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    transition: color var(--transition);
+  }
+
+  .social-link:hover {
+    color: var(--color-accent);
+  }
+
+  .social-link__platform {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .social-link:hover .social-link__platform {
+    color: var(--color-accent);
+  }
+
+  .social-link__handle {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 800px) {
+    .contacts__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contacts__socials {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+  }
+</style>
