@@ -99,4 +99,10 @@ ul {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
   border-radius: var(--radius-sm);
+
+}
+@theme {
+  --color-primary: #ff00aa;     /* кислотно-розовый */
+  --color-accent: #00ffff;      /* циан */
+  --color-bg: #0a0a0a;
 }
