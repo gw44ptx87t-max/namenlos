@@ -1,0 +1,181 @@
+---
+const technicalRider = [
+  {
+    category: 'Sound system',
+    items: [
+      'High-end stereo PA capable of 110+ dB SPL',
+      'Separate monitor wedge or in-ear system',
+      'Dedicated front-of-house engineer preferred',
+      'Crossover and EQ control at FOH',
+    ],
+  },
+  {
+    category: 'DJ / live setup',
+    items: [
+      '2× Pioneer CDJ-3000 or CDJ-2000NXS2',
+      '1× Pioneer DJM-900NXS2 or Allen & Heath Xone:96',
+      'Stable USB-A inputs, clean power (no ground hum)',
+      'Stage monitor with stereo mix',
+    ],
+  },
+  {
+    category: 'Stage & lighting',
+    items: [
+      'Minimum stage depth 4m',
+      'Haze machine (not fog) throughout performance',
+      'Access to lighting desk for pre-show cue programming',
+      'Dimmer pack for ambient practicals',
+    ],
+  },
+];
+
+const hospitalityRider = [
+  '1 private dressing room with lock',
+  'Hotel accommodation (single room, 3★+)',
+  'Ground transport from airport / hotel',
+  '4× towels, 2× water (still, room temperature)',
+  '1 bottle of red wine (dry, European)',
+  'Light food platter (vegetarian options required)',
+  'Guest list: 4 people',
+];
+---
+
+<section class="section" id="backstage" aria-labelledby="backstage-title">
+  <div class="container">
+    <p class="section-label">Rider</p>
+    <h2 class="section-title" id="backstage-title">Technical &amp; hospitality</h2>
+    <p class="backstage__intro">
+      Full rider PDF is available on request. The information below covers
+      primary requirements. Deviations must be discussed and agreed in
+      writing before confirmation.
+    </p>
+
+    <div class="backstage__grid">
+      <div class="rider-block">
+        <h3 class="rider-block__heading">Technical rider</h3>
+        {technicalRider.map((section) => (
+          <div class="rider-section">
+            <p class="rider-section__category">{section.category}</p>
+            <ul class="rider-section__list">
+              {section.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="rider-block">
+        <h3 class="rider-block__heading">Hospitality rider</h3>
+        <ul class="rider-section__list rider-section__list--single">
+          {hospitalityRider.map((item) => <li>{item}</li>)}
+        </ul>
+
+        <div class="rider-note">
+          <p class="rider-note__label">Note</p>
+          <p>
+            NAMENLOS travels with a personal laptop and audio interface.
+            No backline sharing without prior agreement. Sound check minimum
+            2 hours before doors — non-negotiable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .backstage__intro {
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    max-width: 65ch;
+    line-height: 1.7;
+  }
+
+  .backstage__grid {
+    margin-top: var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .rider-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .rider-block__heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  .rider-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rider-section__category {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .rider-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 1.25rem;
+  }
+
+  .rider-section__list li {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    position: relative;
+  }
+
+  .rider-section__list li::before {
+    content: '—';
+    position: absolute;
+    left: -1.25rem;
+    color: var(--color-border);
+  }
+
+  .rider-section__list--single {
+    margin-top: 0.5rem;
+  }
+
+  .rider-note {
+    margin-top: auto;
+    padding: 1.25rem;
+    background: var(--color-accent-dim);
+    border: 1px solid rgba(224, 255, 0, 0.2);
+    border-radius: var(--radius-md);
+  }
+
+  .rider-note__label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .rider-note p:last-child {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 800px) {
+    .backstage__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
