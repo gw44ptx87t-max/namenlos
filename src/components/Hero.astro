@@ -1,33 +1,46 @@
 ---
 ---
 
-<section class="hero" aria-label="Hero">
-  <div class="hero__bg" aria-hidden="true">
-    <div class="hero__grid"></div>
-    <div class="hero__glow"></div>
-  </div>
+<section class="hero min-h-screen flex items-center relative overflow-hidden">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <source src="/videos/bg.mp4" type="video/mp4" />
+  </video>
 
-  <div class="container hero__content">
-    <p class="hero__eyebrow">Electronic · Experimental · Atmospheric</p>
-    <h1 class="hero__title">
-      <span class="hero__title-line">NAME</span>
-      <span class="hero__title-line hero__title-line--accent">LOS</span>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+
+  <div class="container relative z-10 text-center pt-16">
+    <p class="text-sm tracking-[6px] uppercase mb-6 text-[var(--color-accent-2)]">BERLIN • UNDERGROUND TATTOO</p>
+    
+    <h1 class="text-7xl md:text-[10rem] leading-none mb-4 text-white">
+      NAMENLOS
     </h1>
-    <p class="hero__subtitle">
-      Sound artist based between Berlin and the void.<br />
-      Shaping frequencies into emotional landscapes.
+    
+    <p class="text-4xl md:text-6xl font-black text-red-600 tracking-[-2px] mb-10">
+      PAIN IS MY INK
     </p>
-    <div class="hero__actions">
-      <a href="#events" class="btn btn--primary">Next Event</a>
-      <a href="#contacts" class="btn btn--ghost">Book a Show</a>
+
+    <div class="max-w-xl mx-auto text-lg text-gray-300 mb-12">
+      Выжигаю свободу на коже.<br>
+      Без правил. Без компромиссов.
     </div>
+
+    <a href="#booking" 
+       class="inline-block bg-white hover:bg-[var(--color-accent)] text-black hover:text-white font-black text-2xl px-16 py-7 rounded-2xl transition-all duration-300">
+      ЗАБИТЬСЯ НА СЕАНС →
+    </a>
   </div>
 
-  <div class="hero__scroll" aria-hidden="true">
-    <span class="hero__scroll-line"></span>
-    <span class="hero__scroll-label">Scroll</span>
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-xs tracking-widest opacity-60">
+    <div class="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent"></div>
+    SCROLL
   </div>
 </section>
+
+<style>
+  .hero {
+    scroll-snap-align: start;
+  }
+</style>
 
 <style>
   .hero {
