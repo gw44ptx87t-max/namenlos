@@ -10,73 +10,15 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <title>NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY</title>
 
+  <!-- External -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
-
-    body {
-      font-family: 'Impact', system-ui, sans-serif;
-      background: #0a0a0a url('/images/bg/main-bg.svg') fixed center / cover;
-      color: #ddd;
-      background-blend-mode: multiply;
-    }
-
-    .punk-title {
-      font-family: 'Creepster', cursive;
-      text-shadow: 6px 6px 0 #000, -4px -4px 0 #000;
-      letter-spacing: -4px;
-      color: #ff0022;
-    }
-
-    .trash-bg {
-      background: rgba(20, 0, 0, 0.92);
-      border: 6px solid #c00;
-      box-shadow: 0 0 0 10px #000;
-    }
-
-    /* Language switching */
-    [data-lang="ru"] .de { display: none !important; }
-    [data-lang="de"] .ru { display: none !important; }
-
-    .lang-btn {
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      padding: 2px 6px;
-      transition: color 0.2s;
-      background: none;
-      border: none;
-      color: #888;
-    }
-    .lang-btn.active { color: #facc15; border-bottom: 2px solid #facc15; }
-    .lang-btn:hover:not(.active) { color: #ddd; }
-
-    .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border: 2px solid #7f1d1d;
-      color: #ddd;
-      font-size: 1.1rem;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .social-icon:hover { background: #7f1d1d; color: #fff; }
-
-    #mobile-menu { display: none; }
-    #mobile-menu.open { display: flex; }
-
-    .portfolio-img { transition: 0.3s ease; }
-    .portfolio-img:hover {
-      border-color: #facc15 !important;
-      transform: translateY(-4px);
-    }
-  </style>
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body class="overflow-x-hidden">
 
@@ -300,34 +242,6 @@
     </p>
   </footer>
 
-  <script>
-    // Language switcher
-    function setLang(lang) {
-      document.documentElement.setAttribute('data-lang', lang);
-      document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
-      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-      try { localStorage.setItem('lang', lang); } catch(e) {}
-    }
-    try {
-      if (localStorage.getItem('lang') === 'de') setLang('de');
-    } catch(e) {}
-
-    // Mobile menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    hamburger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = open
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-    });
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
-  </script>
-
+  <script src="/main.js"></script>
 </body>
 </html>
