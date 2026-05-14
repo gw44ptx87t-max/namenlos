@@ -1,27 +1,96 @@
----
-import Layout from '../layouts/Layout.astro';
----
+<!DOCTYPE html>
+<html lang="ru" data-lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NAMENLOS TATTOO — Underground tattoo artist. Pain, Chaos, Anarchy. Berlin." />
+  <meta property="og:title" content="NAMENLOS TATTOO" />
+  <meta property="og:description" content="Underground tattoo artist. Pain, Chaos, Anarchy." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <title>NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY</title>
 
-<Layout title="NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY">
+  <!-- External -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet" />
 
-  <style>
-    .portfolio-img { transition: 0.3s ease; }
-    .portfolio-img:hover {
-      border-color: #facc15 !important;
-      transform: translateY(-4px);
-    }
-  </style>
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full border-b-8 border-red-800 bg-black/95 z-50 py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center gap-4">
+
+      <a href="/" class="punk-title text-5xl md:text-6xl shrink-0">NAMENLOS</a>
+
+      <nav class="hidden md:flex gap-8 text-xl font-black uppercase items-center">
+        <a href="#about" class="hover:text-yellow-400 transition">
+          <span class="ru">ABOUT ME</span><span class="de">ÜBER MICH</span>
+        </a>
+        <a href="#portfolio" class="hover:text-yellow-400 transition">PORTFOLIO</a>
+        <a href="#projects" class="hover:text-yellow-400 transition">
+          <span class="ru">МОИ ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
+        </a>
+        <a href="#booking" class="text-red-500 hover:text-white transition">
+          <span class="ru">ЗАПИСАТЬСЯ</span><span class="de">BUCHEN</span>
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3 ml-auto">
+        <div class="hidden md:flex gap-2">
+          <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+        <div class="flex items-center gap-1">
+          <button class="lang-btn active" id="btn-ru" onclick="setLang('ru')">RU</button>
+          <span class="text-gray-600 text-xs">|</span>
+          <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+        </div>
+        <button id="hamburger" class="md:hidden text-3xl text-white leading-none" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="flex-col items-center gap-8 text-2xl font-black uppercase py-10 bg-black border-t-4 border-red-900">
+      <a href="#about" class="mobile-link hover:text-yellow-400">
+        <span class="ru">ABOUT ME</span><span class="de">ÜBER MICH</span>
+      </a>
+      <a href="#portfolio" class="mobile-link hover:text-yellow-400">PORTFOLIO</a>
+      <a href="#projects" class="mobile-link hover:text-yellow-400">
+        <span class="ru">МОИ ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
+      </a>
+      <a href="#booking" class="mobile-link text-red-500 hover:text-white">
+        <span class="ru">ЗАПИСАТЬСЯ</span><span class="de">BUCHEN</span>
+      </a>
+      <div class="flex gap-4">
+        <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+        <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section class="min-h-screen flex items-center pt-28 relative overflow-hidden">
-
     <video autoplay muted loop playsinline
       class="absolute inset-0 w-full h-full object-cover opacity-25">
       <source src="/videos/bg.mp4" type="video/mp4" />
     </video>
-
     <div class="absolute inset-0 bg-black/70"></div>
-
     <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
       <h1 class="punk-title text-7xl md:text-[10rem] leading-none mb-4">NAMENLOS</h1>
       <p class="text-5xl md:text-7xl text-red-500 mb-6">PAIN IS MY INK</p>
@@ -41,8 +110,7 @@ import Layout from '../layouts/Layout.astro';
   <section id="about" class="py-20 md:py-28 trash-bg border-t-8 border-red-800">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black text-center mb-16 text-red-500">
-        <span class="ru">ABOUT ME</span>
-        <span class="de">ÜBER MICH</span>
+        <span class="ru">ABOUT ME</span><span class="de">ÜBER MICH</span>
       </h2>
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
@@ -67,9 +135,7 @@ import Layout from '../layouts/Layout.astro';
             <span class="de">Keine sterilen Studios. Nur echtes Blut, Ketten und Nadeln.</span>
           </p>
           <div class="text-5xl font-black border-l-8 border-yellow-400 pl-8">
-            NO GODS<br />
-            NO MASTERS<br />
-            ONLY CHAOS
+            NO GODS<br>NO MASTERS<br>ONLY CHAOS
           </div>
         </div>
       </div>
@@ -137,7 +203,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ЗАПИСАТЬСЯ НА СЕАНС -->
+  <!-- ЗАПИСАТЬСЯ -->
   <section id="booking" class="py-24 md:py-32 border-t-8 border-red-800 bg-red-800 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-6xl md:text-8xl font-black mb-8">
@@ -145,8 +211,8 @@ import Layout from '../layouts/Layout.astro';
         <span class="de">SESSION BUCHEN</span>
       </h2>
       <p class="text-3xl md:text-4xl mb-12">
-        <span class="ru">Не ищи лёгких путей.<br />Если готов к настоящей метке — пиши.</span>
-        <span class="de">Suche nicht den einfachen Weg.<br />Wenn du bereit bist — schreib.</span>
+        <span class="ru">Не ищи лёгких путей.<br>Если готов к настоящей метке — пиши.</span>
+        <span class="de">Suche nicht den einfachen Weg.<br>Wenn du bereit bist — schreib.</span>
       </p>
       <div class="flex flex-col sm:flex-row gap-6 justify-center">
         <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener"
@@ -161,4 +227,21 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-</Layout>
+  <!-- FOOTER -->
+  <footer class="py-16 text-center border-t-8 border-red-800 bg-black">
+    <div class="flex justify-center gap-4 mb-6">
+      <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
+        <i class="fa-brands fa-telegram"></i>
+      </a>
+      <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+    <p class="text-red-500 text-xl font-black">
+      © 2026 NAMENLOS TATTOO • CHAOS ON SKIN • NO RULES • NO REGRETS
+    </p>
+  </footer>
+
+  <script src="/main.js"></script>
+</body>
+</html>

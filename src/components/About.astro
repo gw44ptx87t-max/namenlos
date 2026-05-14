@@ -1,45 +1,53 @@
 ---
 ---
 
-<section id="about" class="section bg-[var(--color-surface)]">
-  <div class="container">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
-      <div>
-        <img src="/images/about/master.jpg" 
-             alt="Namenlos Tattoo Artist"
-             class="w-full aspect-[4/5] object-cover rounded-3xl border border-red-900/50">
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about__inner">
+    <div class="about__image-wrap">
+      <img
+        src="/artist.jpg"
+        alt="NAMENLOS — artist portrait"
+        class="about__image"
+        loading="lazy"
+        width="560"
+        height="700"
+      />
+      <div class="about__image-border" aria-hidden="true"></div>
+    </div>
+
+    <div class="about__text">
+      <p class="section-label">About</p>
+      <h2 class="section-title" id="about-title">The artist<br />behind the name</h2>
+
+      <div class="about__bio">
+        <p>
+          NAMENLOS is the project of a Berlin-based sound artist who prefers to let the
+          music speak for itself. Drawing from industrial, dark ambient, techno, and
+          experimental traditions, the sets move between tension and release — between
+          noise and silence.
+        </p>
+        <p>
+          Each performance is composed live, responding to the room, the people, and the
+          moment. No two shows are the same.
+        </p>
+        <p>
+          Active since 2018. Releases on cassette and digital. Resident at various
+          underground venues across Europe.
+        </p>
       </div>
 
-      <div class="space-y-8">
-        <div>
-          <p class="section-label">Обо мне</p>
-          <h2 class="section-title text-6xl">Я колю там,<br>где другие боятся</h2>
+      <div class="about__stats">
+        <div class="stat">
+          <span class="stat__number">200+</span>
+          <span class="stat__label">Live sets</span>
         </div>
-
-        <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
-          <p>
-            Живые сессии на кинк-вечеринках, в подвалах и на рейвах. 
-            Никаких стерильных студий — только честная кровь, цепи и настоящий вайб.
-          </p>
-          <p class="italic border-l-4 border-[var(--color-accent)] pl-6">
-            «Если тебе нужна красивая картинка — иди к другим. 
-            Ко мне приходят те, кто хочет чувствовать.»
-          </p>
+        <div class="stat">
+          <span class="stat__number">15+</span>
+          <span class="stat__label">Countries</span>
         </div>
-
-        <div class="pt-8 border-t border-gray-800 flex gap-12 text-sm">
-          <div>
-            <div class="text-4xl font-black text-[var(--color-accent)]">8+</div>
-            <div class="text-gray-500">лет опыта</div>
-          </div>
-          <div>
-            <div class="text-4xl font-black text-[var(--color-accent)]">300+</div>
-            <div class="text-gray-500">сеансов</div>
-          </div>
-          <div>
-            <div class="text-4xl font-black text-[var(--color-accent)]">∞</div>
-            <div class="text-gray-500">хаоса</div>
-          </div>
+        <div class="stat">
+          <span class="stat__number">8</span>
+          <span class="stat__label">Releases</span>
         </div>
       </div>
     </div>
