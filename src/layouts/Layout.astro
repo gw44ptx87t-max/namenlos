@@ -23,6 +23,26 @@ const { title = 'NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY' } = Astro.props
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
 
+    body {
+      font-family: 'Impact', system-ui, sans-serif;
+      background: #0a0a0a url('/images/bg/main-bg.svg') fixed center / cover;
+      color: #ddd;
+      background-blend-mode: multiply;
+    }
+
+    .punk-title {
+      font-family: 'Creepster', cursive;
+      text-shadow: 6px 6px 0 #000, -4px -4px 0 #000;
+      letter-spacing: -4px;
+      color: #ff0022;
+    }
+
+    .trash-bg {
+      background: rgba(20, 0, 0, 0.92);
+      border: 6px solid #c00;
+      box-shadow: 0 0 0 10px #000;
+    }
+
     /* Language switching */
     [data-lang="ru"] .de { display: none !important; }
     [data-lang="de"] .ru { display: none !important; }
@@ -30,110 +50,98 @@ const { title = 'NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY' } = Astro.props
     .lang-btn {
       cursor: pointer;
       font-weight: 900;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       letter-spacing: 0.1em;
       padding: 2px 6px;
       transition: color 0.2s;
+      background: none;
+      border: none;
+      color: #888;
     }
     .lang-btn.active { color: #facc15; border-bottom: 2px solid #facc15; }
-    .lang-btn:not(.active) { color: #888; }
-    .lang-btn:not(.active):hover { color: #ddd; }
+    .lang-btn:hover:not(.active) { color: #ddd; }
 
-    /* Social icon buttons */
-    .social-btn {
+    .social-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       border: 2px solid #7f1d1d;
       color: #ddd;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: all 0.2s;
+      text-decoration: none;
     }
-    .social-btn:hover {
+    .social-icon:hover {
       background: #7f1d1d;
       color: #fff;
-      border-color: #991b1b;
     }
 
-    /* Mobile menu */
-    #mobile-menu {
-      display: none;
-    }
-    #mobile-menu.open {
-      display: flex;
-    }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: flex; }
   </style>
 </head>
 <body class="overflow-x-hidden">
 
   <!-- HEADER -->
-  <header class="fixed top-0 w-full border-b-8 border-red-800 bg-black/95 z-50 py-4">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center gap-6">
+  <header class="fixed top-0 w-full border-b-8 border-red-800 bg-black/95 z-50 py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center gap-4">
 
-      <a href="/" class="shrink-0" style="font-family:'Creepster',cursive; font-size:2.5rem; color:#ff0022; text-shadow:4px 4px 0 #000,-2px -2px 0 #000; letter-spacing:-2px;">
-        NAMENLOS
-      </a>
+      <a href="/" class="punk-title text-5xl md:text-6xl shrink-0">NAMENLOS</a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex gap-8 text-lg font-black uppercase items-center">
+      <nav class="hidden md:flex gap-8 text-xl font-black uppercase items-center">
         <a href="#about" class="hover:text-yellow-400 transition">
-          <span class="ru">ОБО МНЕ</span><span class="de">ÜBER MICH</span>
+          <span class="ru">ABOUT ME</span><span class="de">ÜBER MICH</span>
         </a>
         <a href="#portfolio" class="hover:text-yellow-400 transition">PORTFOLIO</a>
         <a href="#projects" class="hover:text-yellow-400 transition">
-          <span class="ru">ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
+          <span class="ru">МОИ ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
         </a>
         <a href="#booking" class="text-red-500 hover:text-white transition">
           <span class="ru">ЗАПИСАТЬСЯ</span><span class="de">BUCHEN</span>
         </a>
       </nav>
 
-      <!-- Right side: socials + lang + hamburger -->
-      <div class="flex items-center gap-4 ml-auto">
-
-        <!-- Social icons -->
+      <!-- Right: socials + lang + burger -->
+      <div class="flex items-center gap-3 ml-auto">
         <div class="hidden md:flex gap-2">
-          <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
+          <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
             <i class="fa-brands fa-telegram"></i>
           </a>
-          <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+          <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
-
-        <!-- Language switcher -->
-        <div class="flex items-center gap-1 text-white">
+        <div class="flex items-center gap-1">
           <button class="lang-btn active" id="btn-ru" onclick="setLang('ru')">RU</button>
           <span class="text-gray-600 text-xs">|</span>
           <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
         </div>
-
-        <!-- Hamburger -->
-        <button id="hamburger" class="md:hidden text-3xl text-white" aria-label="Menu">
+        <button id="hamburger" class="md:hidden text-3xl text-white leading-none" aria-label="Menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="flex-col items-center gap-8 text-2xl font-black uppercase py-10 bg-black/98 border-t-4 border-red-900">
+    <div id="mobile-menu" class="flex-col items-center gap-8 text-2xl font-black uppercase py-10 bg-black border-t-4 border-red-900">
       <a href="#about" class="mobile-link hover:text-yellow-400">
-        <span class="ru">ОБО МНЕ</span><span class="de">ÜBER MICH</span>
+        <span class="ru">ABOUT ME</span><span class="de">ÜBER MICH</span>
       </a>
       <a href="#portfolio" class="mobile-link hover:text-yellow-400">PORTFOLIO</a>
       <a href="#projects" class="mobile-link hover:text-yellow-400">
-        <span class="ru">ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
+        <span class="ru">МОИ ПРОЕКТЫ</span><span class="de">PROJEKTE</span>
       </a>
       <a href="#booking" class="mobile-link text-red-500 hover:text-white">
         <span class="ru">ЗАПИСАТЬСЯ</span><span class="de">BUCHEN</span>
       </a>
-      <div class="flex gap-4 mt-4">
-        <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-btn">
+      <div class="flex gap-4">
+        <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon">
           <i class="fa-brands fa-telegram"></i>
         </a>
-        <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-btn">
+        <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon">
           <i class="fa-brands fa-instagram"></i>
         </a>
       </div>
@@ -143,49 +151,37 @@ const { title = 'NAMENLOS TATTOO • PAIN • CHAOS • ANARCHY' } = Astro.props
   <slot />
 
   <!-- FOOTER -->
-  <footer class="py-12 border-t-8 border-red-800 bg-black text-center">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col items-center gap-6">
-
-      <div style="font-family:'Creepster',cursive; font-size:2rem; color:#ff0022; letter-spacing:-2px;">
-        NAMENLOS
-      </div>
-
-      <div class="flex gap-4">
-        <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-btn" aria-label="Telegram">
-          <i class="fa-brands fa-telegram"></i>
-        </a>
-        <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-      </div>
-
-      <p class="text-red-700 text-sm font-black tracking-widest">
-        © 2026 NAMENLOS TATTOO • CHAOS ON SKIN • NO RULES • NO REGRETS
-      </p>
+  <footer class="py-16 text-center border-t-8 border-red-800 bg-black">
+    <div class="flex justify-center gap-4 mb-6">
+      <a href="https://t.me/namenlostattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Telegram">
+        <i class="fa-brands fa-telegram"></i>
+      </a>
+      <a href="https://www.instagram.com/namenlos_tattoo" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
     </div>
+    <p class="text-red-500 text-xl font-black">
+      © 2026 NAMENLOS TATTOO • CHAOS ON SKIN • NO RULES • NO REGRETS
+    </p>
   </footer>
 
   <script>
-    // Language switcher
     function setLang(lang) {
       document.documentElement.setAttribute('data-lang', lang);
       document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
       document.getElementById('btn-de').classList.toggle('active', lang === 'de');
       try { localStorage.setItem('lang', lang); } catch(e) {}
     }
-
-    // Restore saved language
     try {
       const saved = localStorage.getItem('lang');
       if (saved === 'de') setLang('de');
     } catch(e) {}
 
-    // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.innerHTML = isOpen
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.innerHTML = open
         ? '<i class="fas fa-times"></i>'
         : '<i class="fas fa-bars"></i>';
     });
